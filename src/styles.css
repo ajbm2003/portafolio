@@ -4,6 +4,22 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+:root{
+  --princpalColor:#a5bcbc ;
+  --navColor:  #09f;
+  --textColor: black;
+}
+
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--navColor);
+  border-radius: 6px; 
+}
+
 a{
   color: black;
 }
@@ -13,7 +29,7 @@ nav {
   bottom: 10px;
   left: 50%;
   transform: translateX( -50%);
-  background-color: rgba(32, 49, 148 , 0.4);
+  background-color: var(--navColor);
   border-radius: 99999px;
   z-index: 10000;
 }
@@ -33,7 +49,7 @@ header{
   width: 100%;
   align-items: center;
   padding: 1rem;
-  background-color: rgba(32, 49, 148 , 0.4);
+  background-color: var(--navColor);
   justify-content: space-between;
   position: fixed;
   z-index: 1;
@@ -45,11 +61,16 @@ header{
   cursor: pointer;
 }
 
-button
-.icon-tabler-code-circle{
-  color:rgb(14, 37, 169) ;
+.sun{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
 }
 
+.text_important{
+  color: var(--textColor);
+}
 .nav_item{
     cursor: pointer;
 }
@@ -59,13 +80,15 @@ button
   flex-direction: column;
 }
 .main_text{
-  background-color: #09f;
+  background-color: var(--navColor);
+  animation: abrir 3s ease-in-out;
 }
 
 .bi-laptop{
   width: 200px;
   height: 200px;
   margin: auto;
+  animation: saltar 2s infinite;
 }
 
 .my_img img{
@@ -80,7 +103,7 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:beige;
+  background-color:var(--princpalColor);
   margin: auto;
   position: relative;
 }
@@ -93,7 +116,7 @@ main{
 }
 
 .name{
-  color:rgb(14, 37, 169) ;
+  color:var(--navColor) ;
 }
 
 article{
@@ -108,7 +131,7 @@ article{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
   padding: 1rem;
   margin-top: 1rem;
-  background-color:beige;
+  background-color:var(--princpalColor);
 }
 
 .card_education{
@@ -131,7 +154,7 @@ article{
 }
 
 .card-body{
-  background-color: beige;
+  background-color: var(--princpalColor)
 }
 
 .carousel-inner{
@@ -151,7 +174,7 @@ article{
 }
 
 .proyect{
-  background-color:  #09f;
+  background-color:  var(--navColor);
   display: grid;
   gap: 1rem;
 }
@@ -161,14 +184,14 @@ article{
 }
 
 section{
-  background-color: beige;
+  background-color: var(--princpalColor);
   height: auto;
   padding: 2rem;
 }
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(59, 91, 198) 50%, #09f 50%);
+  background-image: linear-gradient(-60deg, rgb(59, 91, 198) 50%, var(--navColor) 50%);
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -187,6 +210,54 @@ section{
   animation-duration:5s;
 }
 
+.me{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+#contact{
+display: grid;
+padding: 2rem;
+height: 500px;
+}
+
+.info_contact{
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem;
+}
+
+.buttons_section{
+  display: flex;
+  margin-top: 10px;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.icon-tabler-mail{
+  height: 3rem;
+  width: 3rem;
+}
+
+.icon-tabler-brand-linkedin{
+  height: 3rem;
+  width: 3rem;
+}
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--princpalColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
 @keyframes slide {
   0% {
@@ -195,4 +266,28 @@ section{
   100% {
     transform:translateX(25%);
   }
+}
+
+@keyframes saltar {
+  0%, 100% {
+    transform: translateY(0); /* Sin salto */
+  }
+  50% {
+    transform: translateY(-50px); /* Salto hacia arriba */
+  }
+}
+
+@keyframes abrir {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+body.dark-mode{
+  --princpalColor:#0E110E ;
+  --navColor:#0FC10E ;
+  --textColor:#a5bcbc;
 }
